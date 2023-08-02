@@ -1,0 +1,36 @@
+read: (g=0): rw=read, bs=(R) 64.0KiB-64.0KiB, (W) 64.0KiB-64.0KiB, (T) 64.0KiB-64.0KiB, ioengine=libaio, iodepth=7
+...
+fio-3.7
+Starting 2 threads
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+fio: only root may flush block devices. Cache flush bypassed!
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+
+read: (groupid=0, jobs=2): err= 0: pid=15729: Tue Aug  1 14:31:37 2023
+   read: IOPS=66.9k, BW=4178MiB/s (4381MB/s)(81.6GiB/20001msec)
+    slat (nsec): min=0, max=241000, avg=4687.33, stdev=2575.77
+    clat (nsec): min=0, max=2249.0k, avg=204156.60, stdev=54435.07
+     lat (nsec): min=0, max=2253.0k, avg=208891.66, stdev=54363.26
+    clat percentiles (usec):
+     |  1.00th=[  112],  5.00th=[  130], 10.00th=[  143], 20.00th=[  159],
+     | 30.00th=[  172], 40.00th=[  184], 50.00th=[  198], 60.00th=[  210],
+     | 70.00th=[  227], 80.00th=[  247], 90.00th=[  277], 95.00th=[  306],
+     | 99.00th=[  363], 99.50th=[  388], 99.90th=[  449], 99.95th=[  474],
+     | 99.99th=[  529]
+   bw (  MiB/s): min= 2053, max= 2225, per=49.99%, avg=2088.99, stdev=32.97, samples=79
+   iops        : min=32858, max=35610, avg=33423.90, stdev=527.45, samples=79
+  lat (nsec)   : 2=0.01%
+  lat (usec)   : 50=0.01%, 100=0.13%, 250=81.37%, 500=18.48%, 750=0.03%
+  lat (msec)   : 4=0.01%
+  cpu          : usr=4.34%, sys=23.02%, ctx=999083, majf=0, minf=1677
+  IO depths    : 1=0.1%, 2=0.1%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.1%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=1337184,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=7
+
+Run status group 0 (all jobs):
+   READ: bw=4178MiB/s (4381MB/s), 4178MiB/s-4178MiB/s (4381MB/s-4381MB/s), io=81.6GiB (87.6GB), run=20001-20001msec
+
+Disk stats (read/write):
+  nvme0n1: ios=1330376/0, merge=0/0, ticks=267857/0, in_queue=250321, util=99.61%

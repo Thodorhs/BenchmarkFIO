@@ -1,0 +1,37 @@
+read: (g=0): rw=read, bs=(R) 256KiB-256KiB, (W) 256KiB-256KiB, (T) 256KiB-256KiB, ioengine=libaio, iodepth=20
+...
+fio-3.7
+Starting 4 threads
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+fio: only root may flush block devices. Cache flush bypassed!
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+
+read: (groupid=0, jobs=4): err= 0: pid=28771: Tue Aug  1 16:00:04 2023
+   read: IOPS=23.4k, BW=5852MiB/s (6136MB/s)(114GiB/20003msec)
+    slat (nsec): min=0, max=461000, avg=9210.28, stdev=4861.40
+    clat (usec): min=280, max=9866, avg=3407.46, stdev=729.63
+     lat (usec): min=291, max=9875, avg=3416.80, stdev=729.59
+    clat percentiles (usec):
+     |  1.00th=[ 1516],  5.00th=[ 2311], 10.00th=[ 2606], 20.00th=[ 2868],
+     | 30.00th=[ 3064], 40.00th=[ 3228], 50.00th=[ 3359], 60.00th=[ 3523],
+     | 70.00th=[ 3687], 80.00th=[ 3916], 90.00th=[ 4293], 95.00th=[ 4621],
+     | 99.00th=[ 5538], 99.50th=[ 5866], 99.90th=[ 6456], 99.95th=[ 6783],
+     | 99.99th=[ 7898]
+   bw (  MiB/s): min= 1432, max= 1639, per=25.00%, avg=1462.86, stdev=45.72, samples=160
+   iops        : min= 5728, max= 6556, avg=5851.42, stdev=182.87, samples=160
+  lat (usec)   : 500=0.01%, 750=0.04%, 1000=0.16%
+  lat (msec)   : 2=2.32%, 4=80.48%, 10=16.99%
+  cpu          : usr=1.27%, sys=7.29%, ctx=430721, majf=0, minf=6389
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=468197,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=20
+
+Run status group 0 (all jobs):
+   READ: bw=5852MiB/s (6136MB/s), 5852MiB/s-5852MiB/s (6136MB/s-6136MB/s), io=114GiB (123GB), run=20003-20003msec
+
+Disk stats (read/write):
+  nvme0n1: ios=931552/0, merge=0/0, ticks=2632095/0, in_queue=2625364, util=99.84%

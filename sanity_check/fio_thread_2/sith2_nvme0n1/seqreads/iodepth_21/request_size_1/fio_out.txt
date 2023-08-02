@@ -1,0 +1,36 @@
+read: (g=0): rw=read, bs=(R) 1024B-1024B, (W) 1024B-1024B, (T) 1024B-1024B, ioengine=libaio, iodepth=21
+...
+fio-3.7
+Starting 2 threads
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+fio: only root may flush block devices. Cache flush bypassed!
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+
+read: (groupid=0, jobs=2): err= 0: pid=10527: Tue Aug  1 13:55:06 2023
+   read: IOPS=391k, BW=382MiB/s (401MB/s)(7642MiB/20001msec)
+    slat (nsec): min=0, max=311000, avg=2565.11, stdev=1096.62
+    clat (nsec): min=0, max=548000, avg=103336.84, stdev=20891.56
+     lat (nsec): min=0, max=550000, avg=106247.24, stdev=20869.40
+    clat percentiles (usec):
+     |  1.00th=[   64],  5.00th=[   77], 10.00th=[   83], 20.00th=[   89],
+     | 30.00th=[   93], 40.00th=[   97], 50.00th=[  100], 60.00th=[  105],
+     | 70.00th=[  111], 80.00th=[  117], 90.00th=[  128], 95.00th=[  139],
+     | 99.00th=[  174], 99.50th=[  192], 99.90th=[  239], 99.95th=[  269],
+     | 99.99th=[  343]
+   bw (  KiB/s): min=193206, max=196408, per=50.01%, avg=195664.44, stdev=541.21, samples=78
+   iops        : min=193206, max=196408, avg=195664.41, stdev=541.21, samples=78
+  lat (nsec)   : 2=0.01%
+  lat (usec)   : 2=0.01%, 10=0.01%, 20=0.01%, 50=0.27%, 100=47.13%
+  lat (usec)   : 250=52.52%, 500=0.08%, 750=0.01%
+  cpu          : usr=46.71%, sys=51.26%, ctx=197512, majf=0, minf=189
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=7825834,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=21
+
+Run status group 0 (all jobs):
+   READ: bw=382MiB/s (401MB/s), 382MiB/s-382MiB/s (401MB/s-401MB/s), io=7642MiB (8014MB), run=20001-20001msec
+
+Disk stats (read/write):
+  nvme0n1: ios=7786641/0, merge=0/0, ticks=664547/0, in_queue=644613, util=100.00%

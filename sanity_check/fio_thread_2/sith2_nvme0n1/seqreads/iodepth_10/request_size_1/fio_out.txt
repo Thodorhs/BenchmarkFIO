@@ -1,0 +1,36 @@
+read: (g=0): rw=read, bs=(R) 1024B-1024B, (W) 1024B-1024B, (T) 1024B-1024B, ioengine=libaio, iodepth=10
+...
+fio-3.7
+Starting 2 threads
+fio: only root may flush block devices. Cache flush bypassed!
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+
+read: (groupid=0, jobs=2): err= 0: pid=9990: Tue Aug  1 13:51:19 2023
+   read: IOPS=276k, BW=269MiB/s (283MB/s)(5389MiB/20001msec)
+    slat (nsec): min=0, max=213000, avg=2436.29, stdev=1113.97
+    clat (nsec): min=0, max=379000, avg=69550.89, stdev=22693.78
+     lat (nsec): min=0, max=381000, avg=72056.23, stdev=22601.24
+    clat percentiles (usec):
+     |  1.00th=[   25],  5.00th=[   31], 10.00th=[   38], 20.00th=[   48],
+     | 30.00th=[   59], 40.00th=[   67], 50.00th=[   71], 60.00th=[   77],
+     | 70.00th=[   84], 80.00th=[   89], 90.00th=[   98], 95.00th=[  105],
+     | 99.00th=[  117], 99.50th=[  121], 99.90th=[  167], 99.95th=[  192],
+     | 99.99th=[  258]
+   bw (  KiB/s): min=136464, max=138948, per=50.00%, avg=137954.53, stdev=569.17, samples=79
+   iops        : min=136464, max=138948, avg=137954.53, stdev=569.17, samples=79
+  lat (nsec)   : 2=0.01%
+  lat (usec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%, 50=21.12%
+  lat (usec)   : 100=70.41%, 250=8.46%, 500=0.01%
+  cpu          : usr=15.83%, sys=51.67%, ctx=2764407, majf=0, minf=130
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=100.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.1%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=5518649,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=10
+
+Run status group 0 (all jobs):
+   READ: bw=269MiB/s (283MB/s), 269MiB/s-269MiB/s (283MB/s-283MB/s), io=5389MiB (5651MB), run=20001-20001msec
+
+Disk stats (read/write):
+  nvme0n1: ios=5491028/0, merge=0/0, ticks=366096/0, in_queue=340357, util=100.00%

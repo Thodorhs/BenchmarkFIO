@@ -1,0 +1,36 @@
+read: (g=0): rw=read, bs=(R) 16.0KiB-16.0KiB, (W) 16.0KiB-16.0KiB, (T) 16.0KiB-16.0KiB, ioengine=libaio, iodepth=5
+...
+fio-3.7
+Starting 2 threads
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+fio: only root may flush block devices. Cache flush bypassed!
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+
+read: (groupid=0, jobs=2): err= 0: pid=12137: Tue Aug  1 14:06:08 2023
+   read: IOPS=105k, BW=1639MiB/s (1718MB/s)(32.0GiB/20001msec)
+    slat (nsec): min=0, max=170000, avg=3088.84, stdev=1870.94
+    clat (nsec): min=0, max=488000, avg=91169.75, stdev=29364.72
+     lat (nsec): min=0, max=490000, avg=94478.23, stdev=29336.21
+    clat percentiles (usec):
+     |  1.00th=[   36],  5.00th=[   52], 10.00th=[   69], 20.00th=[   77],
+     | 30.00th=[   80], 40.00th=[   84], 50.00th=[   89], 60.00th=[   92],
+     | 70.00th=[   94], 80.00th=[  100], 90.00th=[  118], 95.00th=[  141],
+     | 99.00th=[  217], 99.50th=[  245], 99.90th=[  289], 99.95th=[  310],
+     | 99.99th=[  351]
+   bw (  KiB/s): min=811680, max=856224, per=50.01%, avg=839177.85, stdev=10919.51, samples=78
+   iops        : min=50730, max=53514, avg=52448.62, stdev=682.47, samples=78
+  lat (nsec)   : 2=0.01%
+  lat (usec)   : 4=0.01%, 10=0.01%, 20=0.01%, 50=4.49%, 100=75.00%
+  lat (usec)   : 250=20.09%, 500=0.42%
+  cpu          : usr=9.38%, sys=26.15%, ctx=1447342, majf=0, minf=338
+  IO depths    : 1=0.1%, 2=0.1%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=2097818,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=5
+
+Run status group 0 (all jobs):
+   READ: bw=1639MiB/s (1718MB/s), 1639MiB/s-1639MiB/s (1718MB/s-1718MB/s), io=32.0GiB (34.4GB), run=20001-20001msec
+
+Disk stats (read/write):
+  nvme0n1: ios=2087252/0, merge=0/0, ticks=184566/0, in_queue=167490, util=99.93%

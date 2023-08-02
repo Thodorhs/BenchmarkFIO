@@ -1,0 +1,36 @@
+read: (g=0): rw=read, bs=(R) 256KiB-256KiB, (W) 256KiB-256KiB, (T) 256KiB-256KiB, ioengine=libaio, iodepth=1
+...
+fio-3.7
+Starting 4 threads
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+fio: only root may flush block devices. Cache flush bypassed!
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+
+read: (groupid=0, jobs=4): err= 0: pid=27818: Tue Aug  1 15:53:31 2023
+   read: IOPS=14.8k, BW=3696MiB/s (3876MB/s)(72.2GiB/20001msec)
+    slat (nsec): min=0, max=205000, avg=12607.79, stdev=5173.88
+    clat (usec): min=75, max=621, avg=256.75, stdev=50.89
+     lat (usec): min=94, max=632, avg=269.54, stdev=50.84
+    clat percentiles (usec):
+     |  1.00th=[  167],  5.00th=[  186], 10.00th=[  198], 20.00th=[  215],
+     | 30.00th=[  227], 40.00th=[  239], 50.00th=[  251], 60.00th=[  265],
+     | 70.00th=[  277], 80.00th=[  297], 90.00th=[  326], 95.00th=[  351],
+     | 99.00th=[  404], 99.50th=[  429], 99.90th=[  478], 99.95th=[  498],
+     | 99.99th=[  537]
+   bw (  KiB/s): min=923136, max=982528, per=25.00%, avg=946329.65, stdev=12492.39, samples=156
+   iops        : min= 3606, max= 3838, avg=3696.55, stdev=48.85, samples=156
+  lat (usec)   : 100=0.01%, 250=49.03%, 500=50.93%, 750=0.05%
+  cpu          : usr=0.99%, sys=5.77%, ctx=295742, majf=0, minf=1674
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=295733,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=3696MiB/s (3876MB/s), 3696MiB/s-3696MiB/s (3876MB/s-3876MB/s), io=72.2GiB (77.5GB), run=20001-20001msec
+
+Disk stats (read/write):
+  nvme0n1: ios=588533/0, merge=0/0, ticks=134349/0, in_queue=115548, util=99.83%

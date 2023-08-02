@@ -1,0 +1,14 @@
+[read]
+rw=read
+size=${SIZE}
+bs=${BLOCK_SIZE}
+direct=1
+filename=/dev/${DEVICE}
+iodepth=${IODEPTH}
+ioengine=libaio
+time_based
+runtime=20
+gtod_cpu=31
+group_reporting=1
+numjobs=${NJOBS}
+thread

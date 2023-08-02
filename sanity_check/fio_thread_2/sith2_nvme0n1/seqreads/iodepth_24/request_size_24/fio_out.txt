@@ -1,0 +1,36 @@
+read: (g=0): rw=read, bs=(R) 24.0KiB-24.0KiB, (W) 24.0KiB-24.0KiB, (T) 24.0KiB-24.0KiB, ioengine=libaio, iodepth=24
+...
+fio-3.7
+Starting 2 threads
+fio: only root may flush block devices. Cache flush bypassed!
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+
+read: (groupid=0, jobs=2): err= 0: pid=14230: Tue Aug  1 14:20:56 2023
+   read: IOPS=214k, BW=5020MiB/s (5264MB/s)(98.1GiB/20001msec)
+    slat (nsec): min=0, max=284000, avg=3576.01, stdev=1401.86
+    clat (usec): min=18, max=1128, avg=220.00, stdev=81.61
+     lat (usec): min=22, max=1131, avg=223.58, stdev=81.59
+    clat percentiles (usec):
+     |  1.00th=[  103],  5.00th=[  121], 10.00th=[  135], 20.00th=[  155],
+     | 30.00th=[  172], 40.00th=[  188], 50.00th=[  206], 60.00th=[  225],
+     | 70.00th=[  247], 80.00th=[  277], 90.00th=[  322], 95.00th=[  371],
+     | 99.00th=[  502], 99.50th=[  562], 99.90th=[  685], 99.95th=[  725],
+     | 99.99th=[  799]
+   bw (  MiB/s): min= 1463, max= 2671, per=50.60%, avg=2540.44, stdev=177.04, samples=78
+   iops        : min=62430, max=113992, avg=108391.90, stdev=7553.83, samples=78
+  lat (usec)   : 20=0.01%, 50=0.01%, 100=0.63%, 250=70.79%, 500=27.58%
+  lat (usec)   : 750=0.97%, 1000=0.03%
+  lat (msec)   : 2=0.01%
+  cpu          : usr=16.06%, sys=47.09%, ctx=1465851, majf=0, minf=1836
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=4284287,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=24
+
+Run status group 0 (all jobs):
+   READ: bw=5020MiB/s (5264MB/s), 5020MiB/s-5020MiB/s (5264MB/s-5264MB/s), io=98.1GiB (105GB), run=20001-20001msec
+
+Disk stats (read/write):
+  nvme0n1: ios=4272722/0, merge=0/0, ticks=913549/0, in_queue=894594, util=99.86%

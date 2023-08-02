@@ -1,0 +1,39 @@
+read: (g=0): rw=read, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=libaio, iodepth=20
+...
+fio-3.7
+Starting 4 threads
+fio: only root may flush block devices. Cache flush bypassed!
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+
+read: (groupid=0, jobs=4): err= 0: pid=21501: Tue Aug  1 15:10:26 2023
+   read: IOPS=541k, BW=2111MiB/s (2214MB/s)(41.2GiB/20001msec)
+    slat (nsec): min=0, max=388000, avg=2491.97, stdev=1176.53
+    clat (nsec): min=0, max=1473.0k, avg=144123.96, stdev=74357.98
+     lat (nsec): min=0, max=1475.0k, avg=146924.70, stdev=74339.72
+    clat percentiles (usec):
+     |  1.00th=[   63],  5.00th=[   67], 10.00th=[   71], 20.00th=[   82],
+     | 30.00th=[   99], 40.00th=[  114], 50.00th=[  128], 60.00th=[  143],
+     | 70.00th=[  159], 80.00th=[  192], 90.00th=[  241], 95.00th=[  289],
+     | 99.00th=[  404], 99.50th=[  453], 99.90th=[  570], 99.95th=[  619],
+     | 99.99th=[  758]
+   bw (  KiB/s): min=497944, max=564680, per=24.99%, avg=540209.26, stdev=21103.44, samples=156
+   iops        : min=124486, max=141170, avg=135052.30, stdev=5275.91, samples=156
+  lat (nsec)   : 2=0.01%
+  lat (usec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%, 50=0.01%
+  lat (usec)   : 100=30.17%, 250=61.10%, 500=8.47%, 750=0.24%, 1000=0.01%
+  lat (msec)   : 2=0.01%
+  cpu          : usr=32.25%, sys=41.67%, ctx=2832033, majf=0, minf=802
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=10810915,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=20
+
+Run status group 0 (all jobs):
+   READ: bw=2111MiB/s (2214MB/s), 2111MiB/s-2111MiB/s (2214MB/s-2214MB/s), io=41.2GiB (44.3GB), run=20001-20001msec
+
+Disk stats (read/write):
+  nvme0n1: ios=10754632/0, merge=0/0, ticks=1484310/0, in_queue=1608679, util=100.00%

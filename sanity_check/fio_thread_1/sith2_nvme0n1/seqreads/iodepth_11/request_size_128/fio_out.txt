@@ -1,0 +1,33 @@
+read: (g=0): rw=read, bs=(R) 128KiB-128KiB, (W) 128KiB-128KiB, (T) 128KiB-128KiB, ioengine=libaio, iodepth=11
+fio-3.7
+Starting 1 thread
+fio: only root may flush block devices. Cache flush bypassed!
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+
+read: (groupid=0, jobs=1): err= 0: pid=7268: Tue Aug  1 13:29:11 2023
+   read: IOPS=28.3k, BW=3540MiB/s (3712MB/s)(69.1GiB/20001msec)
+    slat (nsec): min=0, max=128000, avg=5356.07, stdev=1117.33
+    clat (usec): min=99, max=1235, avg=382.57, stdev=148.57
+     lat (usec): min=104, max=1240, avg=388.01, stdev=148.54
+    clat percentiles (usec):
+     |  1.00th=[  169],  5.00th=[  208], 10.00th=[  235], 20.00th=[  269],
+     | 30.00th=[  293], 40.00th=[  318], 50.00th=[  347], 60.00th=[  375],
+     | 70.00th=[  412], 80.00th=[  478], 90.00th=[  603], 95.00th=[  701],
+     | 99.00th=[  848], 99.50th=[  898], 99.90th=[  979], 99.95th=[ 1004],
+     | 99.99th=[ 1074]
+   bw (  MiB/s): min= 2575, max= 5040, per=100.00%, avg=3562.80, stdev=811.97, samples=39
+   iops        : min=20602, max=40322, avg=28502.44, stdev=6495.74, samples=39
+  lat (usec)   : 100=0.01%, 250=14.09%, 500=68.08%, 750=14.57%, 1000=3.21%
+  lat (msec)   : 2=0.06%
+  cpu          : usr=1.84%, sys=22.02%, ctx=429952, majf=0, minf=2165
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=100.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.1%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=566400,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=11
+
+Run status group 0 (all jobs):
+   READ: bw=3540MiB/s (3712MB/s), 3540MiB/s-3540MiB/s (3712MB/s-3712MB/s), io=69.1GiB (74.2GB), run=20001-20001msec
+
+Disk stats (read/write):
+  nvme0n1: ios=564302/0, merge=0/0, ticks=214438/0, in_queue=197368, util=99.53%

@@ -1,0 +1,36 @@
+read: (g=0): rw=read, bs=(R) 24.0KiB-24.0KiB, (W) 24.0KiB-24.0KiB, (T) 24.0KiB-24.0KiB, ioengine=libaio, iodepth=2
+...
+fio-3.7
+Starting 2 threads
+fio: only root may flush block devices. Cache flush bypassed!
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+
+read: (groupid=0, jobs=2): err= 0: pid=13154: Tue Aug  1 14:13:22 2023
+   read: IOPS=43.5k, BW=1019MiB/s (1069MB/s)(19.9GiB/20001msec)
+    slat (nsec): min=0, max=297000, avg=3706.14, stdev=2957.59
+    clat (nsec): min=0, max=446000, avg=87728.36, stdev=24595.41
+     lat (nsec): min=0, max=452000, avg=91481.52, stdev=24340.20
+    clat percentiles (usec):
+     |  1.00th=[   37],  5.00th=[   51], 10.00th=[   70], 20.00th=[   77],
+     | 30.00th=[   79], 40.00th=[   84], 50.00th=[   89], 60.00th=[   91],
+     | 70.00th=[   93], 80.00th=[   94], 90.00th=[  102], 95.00th=[  122],
+     | 99.00th=[  200], 99.50th=[  231], 99.90th=[  269], 99.95th=[  281],
+     | 99.99th=[  318]
+   bw (  KiB/s): min=514656, max=528432, per=50.01%, avg=521962.81, stdev=3395.26, samples=78
+   iops        : min=21444, max=22018, avg=21748.46, stdev=141.49, samples=78
+  lat (nsec)   : 2=0.01%
+  lat (usec)   : 10=0.01%, 20=0.01%, 50=4.75%, 100=83.50%, 250=11.52%
+  lat (usec)   : 500=0.23%
+  cpu          : usr=3.23%, sys=13.11%, ctx=815893, majf=0, minf=223
+  IO depths    : 1=0.1%, 2=100.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=869801,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=2
+
+Run status group 0 (all jobs):
+   READ: bw=1019MiB/s (1069MB/s), 1019MiB/s-1019MiB/s (1069MB/s-1069MB/s), io=19.9GiB (21.4GB), run=20001-20001msec
+
+Disk stats (read/write):
+  nvme0n1: ios=865479/0, merge=0/0, ticks=74374/0, in_queue=57708, util=99.55%

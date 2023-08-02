@@ -1,0 +1,37 @@
+read: (g=0): rw=read, bs=(R) 64.0KiB-64.0KiB, (W) 64.0KiB-64.0KiB, (T) 64.0KiB-64.0KiB, ioengine=libaio, iodepth=22
+...
+fio-3.7
+Starting 2 threads
+fio: only root may flush block devices. Cache flush bypassed!
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+
+read: (groupid=0, jobs=2): err= 0: pid=16466: Tue Aug  1 14:36:47 2023
+   read: IOPS=87.3k, BW=5455MiB/s (5720MB/s)(107GiB/20001msec)
+    slat (nsec): min=0, max=329000, avg=4882.97, stdev=2573.85
+    clat (nsec): min=0, max=4599.0k, avg=498683.04, stdev=280230.79
+     lat (nsec): min=0, max=4603.0k, avg=503616.83, stdev=280318.26
+    clat percentiles (usec):
+     |  1.00th=[  210],  5.00th=[  262], 10.00th=[  293], 20.00th=[  334],
+     | 30.00th=[  367], 40.00th=[  396], 50.00th=[  429], 60.00th=[  461],
+     | 70.00th=[  502], 80.00th=[  562], 90.00th=[  717], 95.00th=[ 1139],
+     | 99.00th=[ 1713], 99.50th=[ 1860], 99.90th=[ 2212], 99.95th=[ 2376],
+     | 99.99th=[ 2769]
+   bw (  MiB/s): min= 1201, max= 3193, per=50.00%, avg=2727.38, stdev=821.57, samples=80
+   iops        : min=19218, max=51092, avg=43638.03, stdev=13145.06, samples=80
+  lat (nsec)   : 2=0.01%
+  lat (usec)   : 10=0.01%, 50=0.01%, 100=0.01%, 250=3.59%, 500=65.66%
+  lat (usec)   : 750=21.61%, 1000=3.03%
+  lat (msec)   : 2=5.84%, 4=0.26%, 10=0.01%
+  cpu          : usr=5.52%, sys=29.57%, ctx=1059600, majf=0, minf=4330
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=1745665,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=22
+
+Run status group 0 (all jobs):
+   READ: bw=5455MiB/s (5720MB/s), 5455MiB/s-5455MiB/s (5720MB/s-5720MB/s), io=107GiB (114GB), run=20001-20001msec
+
+Disk stats (read/write):
+  nvme0n1: ios=1741678/0, merge=0/0, ticks=859415/0, in_queue=841616, util=99.71%

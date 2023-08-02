@@ -1,0 +1,36 @@
+read: (g=0): rw=read, bs=(R) 1024B-1024B, (W) 1024B-1024B, (T) 1024B-1024B, ioengine=libaio, iodepth=5
+...
+fio-3.7
+Starting 2 threads
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+fio: only root may flush block devices. Cache flush bypassed!
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+
+read: (groupid=0, jobs=2): err= 0: pid=9739: Tue Aug  1 13:49:36 2023
+   read: IOPS=171k, BW=167MiB/s (175MB/s)(3340MiB/20001msec)
+    slat (nsec): min=0, max=283000, avg=2191.43, stdev=876.14
+    clat (nsec): min=0, max=376000, avg=55246.70, stdev=17469.50
+     lat (nsec): min=0, max=378000, avg=57672.82, stdev=17388.71
+    clat percentiles (usec):
+     |  1.00th=[   24],  5.00th=[   28], 10.00th=[   31], 20.00th=[   39],
+     | 30.00th=[   45], 40.00th=[   52], 50.00th=[   57], 60.00th=[   65],
+     | 70.00th=[   67], 80.00th=[   69], 90.00th=[   77], 95.00th=[   83],
+     | 99.00th=[   86], 99.50th=[   90], 99.90th=[  174], 99.95th=[  196],
+     | 99.99th=[  235]
+   bw (  KiB/s): min=84074, max=86462, per=50.01%, avg=85518.51, stdev=495.75, samples=78
+   iops        : min=84074, max=86462, avg=85518.49, stdev=495.79, samples=78
+  lat (nsec)   : 2=0.01%
+  lat (usec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%, 50=38.62%
+  lat (usec)   : 100=61.17%, 250=0.20%, 500=0.01%
+  cpu          : usr=9.67%, sys=39.38%, ctx=2924877, majf=0, minf=119
+  IO depths    : 1=0.1%, 2=0.1%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=3420073,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=5
+
+Run status group 0 (all jobs):
+   READ: bw=167MiB/s (175MB/s), 167MiB/s-167MiB/s (175MB/s-175MB/s), io=3340MiB (3502MB), run=20001-20001msec
+
+Disk stats (read/write):
+  nvme0n1: ios=3402920/0, merge=0/0, ticks=181672/0, in_queue=160790, util=100.00%

@@ -1,0 +1,36 @@
+read: (g=0): rw=read, bs=(R) 128KiB-128KiB, (W) 128KiB-128KiB, (T) 128KiB-128KiB, ioengine=libaio, iodepth=5
+...
+fio-3.7
+Starting 2 threads
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+fio: only root may flush block devices. Cache flush bypassed!
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+
+read: (groupid=0, jobs=2): err= 0: pid=16798: Tue Aug  1 14:39:11 2023
+   read: IOPS=37.1k, BW=4631MiB/s (4856MB/s)(90.5GiB/20001msec)
+    slat (nsec): min=0, max=198000, avg=5377.76, stdev=1106.08
+    clat (nsec): min=0, max=1313.0k, avg=264007.38, stdev=62357.51
+     lat (nsec): min=0, max=1318.0k, avg=269470.92, stdev=62326.95
+    clat percentiles (usec):
+     |  1.00th=[  149],  5.00th=[  174], 10.00th=[  190], 20.00th=[  212],
+     | 30.00th=[  229], 40.00th=[  243], 50.00th=[  258], 60.00th=[  273],
+     | 70.00th=[  293], 80.00th=[  314], 90.00th=[  347], 95.00th=[  375],
+     | 99.00th=[  441], 99.50th=[  465], 99.90th=[  523], 99.95th=[  545],
+     | 99.99th=[  594]
+   bw (  MiB/s): min= 2288, max= 2462, per=50.02%, avg=2316.43, stdev=34.45, samples=78
+   iops        : min=18304, max=19696, avg=18531.41, stdev=275.61, samples=78
+  lat (nsec)   : 2=0.01%
+  lat (usec)   : 50=0.01%, 100=0.01%, 250=44.57%, 500=55.23%, 750=0.19%
+  lat (msec)   : 2=0.01%
+  cpu          : usr=1.08%, sys=14.99%, ctx=657009, majf=0, minf=2004
+  IO depths    : 1=0.1%, 2=0.1%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=741039,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=5
+
+Run status group 0 (all jobs):
+   READ: bw=4631MiB/s (4856MB/s), 4631MiB/s-4631MiB/s (4856MB/s-4856MB/s), io=90.5GiB (97.1GB), run=20001-20001msec
+
+Disk stats (read/write):
+  nvme0n1: ios=737336/0, merge=0/0, ticks=193931/0, in_queue=176710, util=99.58%

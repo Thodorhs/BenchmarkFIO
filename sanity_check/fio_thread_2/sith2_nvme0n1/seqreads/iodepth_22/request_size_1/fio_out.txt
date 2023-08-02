@@ -1,0 +1,36 @@
+read: (g=0): rw=read, bs=(R) 1024B-1024B, (W) 1024B-1024B, (T) 1024B-1024B, ioengine=libaio, iodepth=22
+...
+fio-3.7
+Starting 2 threads
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+fio: only root may flush block devices. Cache flush bypassed!
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+
+read: (groupid=0, jobs=2): err= 0: pid=10572: Tue Aug  1 13:55:27 2023
+   read: IOPS=393k, BW=384MiB/s (403MB/s)(7681MiB/20001msec)
+    slat (nsec): min=0, max=307000, avg=2555.19, stdev=1101.93
+    clat (nsec): min=0, max=669000, avg=107848.56, stdev=20865.87
+     lat (nsec): min=0, max=672000, avg=110762.28, stdev=20852.49
+    clat percentiles (usec):
+     |  1.00th=[   67],  5.00th=[   81], 10.00th=[   86], 20.00th=[   93],
+     | 30.00th=[   98], 40.00th=[  102], 50.00th=[  105], 60.00th=[  111],
+     | 70.00th=[  116], 80.00th=[  122], 90.00th=[  131], 95.00th=[  143],
+     | 99.00th=[  178], 99.50th=[  196], 99.90th=[  245], 99.95th=[  277],
+     | 99.99th=[  351]
+   bw (  KiB/s): min=194400, max=197374, per=49.99%, avg=196603.02, stdev=500.84, samples=80
+   iops        : min=194400, max=197374, avg=196603.03, stdev=500.79, samples=80
+  lat (nsec)   : 2=0.01%
+  lat (usec)   : 10=0.01%, 20=0.01%, 50=0.17%, 100=34.11%, 250=65.64%
+  lat (usec)   : 500=0.09%, 750=0.01%
+  cpu          : usr=48.28%, sys=50.47%, ctx=115940, majf=0, minf=183
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=7865344,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=22
+
+Run status group 0 (all jobs):
+   READ: bw=384MiB/s (403MB/s), 384MiB/s-384MiB/s (403MB/s-403MB/s), io=7681MiB (8054MB), run=20001-20001msec
+
+Disk stats (read/write):
+  nvme0n1: ios=7826150/0, merge=0/0, ticks=664537/0, in_queue=651305, util=100.00%

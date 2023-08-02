@@ -1,0 +1,37 @@
+read: (g=0): rw=read, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=libaio, iodepth=2
+...
+fio-3.7
+Starting 2 threads
+fio: only root may flush block devices. Cache flush bypassed!
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
+
+read: (groupid=0, jobs=2): err= 0: pid=10800: Tue Aug  1 13:56:50 2023
+   read: IOPS=54.3k, BW=212MiB/s (222MB/s)(4243MiB/20001msec)
+    slat (nsec): min=0, max=111000, avg=2669.70, stdev=2422.01
+    clat (nsec): min=0, max=1934.0k, avg=70435.32, stdev=12403.58
+     lat (nsec): min=0, max=1938.0k, avg=73155.51, stdev=12579.85
+    clat percentiles (usec):
+     |  1.00th=[   53],  5.00th=[   62], 10.00th=[   62], 20.00th=[   63],
+     | 30.00th=[   64], 40.00th=[   64], 50.00th=[   65], 60.00th=[   69],
+     | 70.00th=[   78], 80.00th=[   80], 90.00th=[   84], 95.00th=[   90],
+     | 99.00th=[  117], 99.50th=[  130], 99.90th=[  161], 99.95th=[  174],
+     | 99.99th=[  200]
+   bw (  KiB/s): min=105248, max=111856, per=49.99%, avg=108592.13, stdev=2620.80, samples=79
+   iops        : min=26312, max=27964, avg=27148.03, stdev=655.19, samples=79
+  lat (nsec)   : 2=0.01%
+  lat (usec)   : 20=0.01%, 50=0.18%, 100=97.49%, 250=2.33%, 500=0.01%
+  lat (usec)   : 750=0.01%
+  lat (msec)   : 2=0.01%
+  cpu          : usr=4.30%, sys=12.28%, ctx=794239, majf=0, minf=111
+  IO depths    : 1=0.1%, 2=100.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=1086248,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=2
+
+Run status group 0 (all jobs):
+   READ: bw=212MiB/s (222MB/s), 212MiB/s-212MiB/s (222MB/s-222MB/s), io=4243MiB (4449MB), run=20001-20001msec
+
+Disk stats (read/write):
+  nvme0n1: ios=1080800/0, merge=0/0, ticks=72778/0, in_queue=54979, util=99.27%
