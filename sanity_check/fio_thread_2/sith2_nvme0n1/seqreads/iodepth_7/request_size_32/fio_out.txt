@@ -6,32 +6,31 @@ fio: only root may flush block devices. Cache flush bypassed!
 fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
 fio: cache invalidation of /dev/nvme0n1 failed: Permission denied
 
-read: (groupid=0, jobs=2): err= 0: pid=14563: Tue Aug  1 14:23:21 2023
-   read: IOPS=94.7k, BW=2959MiB/s (3103MB/s)(57.8GiB/20001msec)
-    slat (nsec): min=0, max=143000, avg=3642.63, stdev=2224.19
-    clat (nsec): min=0, max=2208.0k, avg=143670.79, stdev=42834.90
-     lat (nsec): min=0, max=2214.0k, avg=147366.19, stdev=42812.56
+read: (groupid=0, jobs=2): err= 0: pid=10086: Wed Aug  2 22:45:50 2023
+   read: IOPS=104k, BW=3241MiB/s (3399MB/s)(63.3GiB/20001msec)
+    slat (nsec): min=0, max=236000, avg=3586.46, stdev=2043.20
+    clat (nsec): min=0, max=775000, avg=130900.81, stdev=30963.60
+     lat (nsec): min=0, max=777000, avg=134520.35, stdev=30869.97
     clat percentiles (usec):
-     |  1.00th=[   85],  5.00th=[   93], 10.00th=[   98], 20.00th=[  106],
-     | 30.00th=[  117], 40.00th=[  127], 50.00th=[  137], 60.00th=[  147],
-     | 70.00th=[  159], 80.00th=[  176], 90.00th=[  202], 95.00th=[  227],
-     | 99.00th=[  281], 99.50th=[  302], 99.90th=[  351], 99.95th=[  367],
-     | 99.99th=[  416]
-   bw (  MiB/s): min= 1429, max= 1580, per=50.00%, avg=1479.56, stdev=25.17, samples=80
-   iops        : min=45756, max=50566, avg=47346.00, stdev=805.49, samples=80
+     |  1.00th=[   85],  5.00th=[   94], 10.00th=[   98], 20.00th=[  104],
+     | 30.00th=[  112], 40.00th=[  119], 50.00th=[  126], 60.00th=[  133],
+     | 70.00th=[  143], 80.00th=[  153], 90.00th=[  172], 95.00th=[  190],
+     | 99.00th=[  229], 99.50th=[  247], 99.90th=[  285], 99.95th=[  306],
+     | 99.99th=[  347]
+   bw (  MiB/s): min= 1547, max= 1653, per=50.00%, avg=1620.60, stdev=30.04, samples=80
+   iops        : min=49512, max=52904, avg=51859.16, stdev=961.38, samples=80
   lat (nsec)   : 2=0.01%
-  lat (usec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%, 50=0.01%
-  lat (usec)   : 100=11.63%, 250=85.85%, 500=2.52%, 750=0.01%
-  lat (msec)   : 4=0.01%
-  cpu          : usr=5.96%, sys=26.07%, ctx=1293336, majf=0, minf=767
+  lat (usec)   : 10=0.01%, 20=0.01%, 50=0.01%, 100=12.46%, 250=87.09%
+  lat (usec)   : 500=0.45%, 750=0.01%, 1000=0.01%
+  cpu          : usr=6.43%, sys=28.36%, ctx=1422210, majf=0, minf=1409
   IO depths    : 1=0.1%, 2=0.1%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
      submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
      complete  : 0=0.0%, 4=100.0%, 8=0.1%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
-     issued rwts: total=1893949,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     issued rwts: total=2074432,0,0,0 short=0,0,0,0 dropped=0,0,0,0
      latency   : target=0, window=0, percentile=100.00%, depth=7
 
 Run status group 0 (all jobs):
-   READ: bw=2959MiB/s (3103MB/s), 2959MiB/s-2959MiB/s (3103MB/s-3103MB/s), io=57.8GiB (62.1GB), run=20001-20001msec
+   READ: bw=3241MiB/s (3399MB/s), 3241MiB/s-3241MiB/s (3399MB/s-3399MB/s), io=63.3GiB (67.0GB), run=20001-20001msec
 
 Disk stats (read/write):
-  nvme0n1: ios=1884765/0, merge=0/0, ticks=265428/0, in_queue=247323, util=99.62%
+  nvme0n1: ios=2064412/0, merge=0/0, ticks=264143/0, in_queue=245963, util=99.73%
