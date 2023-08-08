@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-path="/spare/thodp/BenchmarkFIO/out/fio_thread_8/sith2_nvme0n1"
+path="/spare/thodp/BenchmarkFIO/out/fio_thread_4/networktest"
 
-device="nvme0n1"
-block_sizes=(4 8 16 24 32 64)
-iodepths=(24)
-numjobs=8
+device="nbd0"
+block_sizes=(64 128 256 512 1024 2048)
+iodepths=(4 8 16)
+numjobs=4
 echo "==========================================================="
 echo "Numjobs: $numjobs"
 echo
