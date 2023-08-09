@@ -3,14 +3,16 @@
 server="/home1/public/thodp/test_fio/BenchmarkFIO/out/fio_thread_4/networktest"
 client="/spare/thodp/BenchmarkFIO/out/fio_thread_4/networktest"
 hostname="sith2"
+interface="ens10d1"
 
 device="nbd0"
-block_sizes=(64 128 256 512 1024 2048)
-iodepths=(4 8 16)
+block_sizes=(64 128 256)
+iodepths=(8)
 numjobs=4
 
 ssh thodp@"$hostname" "mkdir -p $server"
 
+rm -rf "$client/*"
 
 output=$(ethtool -S ens10d1)
 
@@ -28,6 +30,9 @@ ssh thodp@"$hostname" "mpstat 1 > $server/tempssh.txt" &
 sleep 3
 mpstat_pid_ssh=$(ssh thodp@sith2 pgrep -o mpstat)
 
+tshark -i "$interface" tcp -w "$client/pack.pcap" &
+tshark_pid=$!
+
 STARTTIME=$(date +%s)
 
 for bs in ${block_sizes[@]}; do
@@ -39,16 +44,21 @@ for bs in ${block_sizes[@]}; do
                 mkdir -p "$client/randreads/iodepth_$io/request_size_$bs/"
                 mkdir -p "$client/randwrites/iodepth_$io/request_size_$bs/"
                 
-		BLOCK_SIZE="${bs}k" SIZE='50%' DEVICE="$device" IODEPTH="$io" NJOBS="$numjobs" fio scripts/rand-write.fio --output="$client/randwrites/iodepth_${io}/request_size_${bs}/fio_out.txt"      
+		#BLOCK_SIZE="${bs}k" SIZE='50%' DEVICE="$device" IODEPTH="$io" NJOBS="$numjobs" fio scripts/rand-write.fio --output="$client/randwrites/iodepth_${io}/request_size_${bs}/fio_out.txt"      
                 echo
-                BLOCK_SIZE="${bs}k" SIZE='50%' DEVICE="$device" IODEPTH="$io" NJOBS="$numjobs" fio scripts/rand-read.fio --output="$client/randreads/iodepth_${io}/request_size_${bs}/fio_out.txt"        
+                #BLOCK_SIZE="${bs}k" SIZE='50%' DEVICE="$device" IODEPTH="$io" NJOBS="$numjobs" fio scripts/rand-read.fio --output="$client/randreads/iodepth_${io}/request_size_${bs}/fio_out.txt"        
                 echo
-                BLOCK_SIZE="${bs}k" SIZE='50%' DEVICE="$device" IODEPTH="$io" NJOBS="$numjobs" fio scripts/write.fio --output="$client/seqwrites/iodepth_${io}/request_size_${bs}/fio_out.txt"
+                #BLOCK_SIZE="${bs}k" SIZE='50%' DEVICE="$device" IODEPTH="$io" NJOBS="$numjobs" fio scripts/write.fio --output="$client/seqwrites/iodepth_${io}/request_size_${bs}/fio_out.txt"
                 echo
-                BLOCK_SIZE="${bs}k" SIZE='50%' DEVICE="$device" IODEPTH="$io" NJOBS="$numjobs" fio scripts/read.fio --output="$client/seqreads/iodepth_${io}/request_size_${bs}/fio_out.txt"
+                BLOCK_SIZE="${bs}k" SIZE='10G' DEVICE="$device" IODEPTH="$io" NJOBS="$numjobs" fio scripts/read.fio --output="$client/seqreads/iodepth_${io}/request_size_${bs}/fio_out.txt"
                 echo
         done
 done
+
+kill "$tshark_pid"
+tshark -r "$client/pack.pcap" -q -z io,phs > "$client/proto_hierarchy.txt"
+tshark -qz plen,tree -r "$client/pack.pcap" > "$client/pack_lengths.txt"
+
 for bs in ${block_sizes[@]}; do
         for io in ${iodepths[@]}; do
                 python3 parse.py "$client/seqreads/iodepth_${io}/request_size_${bs}/fio_out.txt" "$client/seqreads/iodepth_${io}" ${bs}
